@@ -1,0 +1,31 @@
+<h1>ホテル詳細ページ</h1>
+
+<p>
+	<strong>ホテル名:</strong>
+    <%= @hotel.name %>
+</p>
+
+<p>
+	<strong>description:</strong>
+	<%= @hotel.description %>
+	
+</p>
+
+<%= image_tag(@hotel.picture_url, width: 600) if @hotel.picture.present? %>
+
+<p>
+    <strong>☎:</strong>
+	<%= @hotel.phone %>
+	
+</p>
+
+<p><%= link_to 'Back', hotels_path %></p>
+
+<%= link_to 'レビューの一覧', hotel_reviews_path(@hotel) %>
+
+
+<%= link_to 'レビューの作成', new_hotel_review_path(@hotel) %>
+
+
+<%= link_to '予約', new_hotel_reservation_path(@hotel) %>
+

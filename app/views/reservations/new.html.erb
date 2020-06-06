@@ -1,0 +1,7 @@
+<h1>New Reservation</h1>
+
+<%= render 'form', reservation: @reservation %>
+
+= render 'layouts/error_messages', model: f.object
+
+<%= link_to 'Back', hotel_path(@hotel) %>

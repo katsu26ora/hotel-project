@@ -1,0 +1,29 @@
+<h1>ご予約ありがとうございます</h1>
+<p>
+  <strong>name:</strong>
+  <%= @reservation.name %>
+</p>
+
+<p>
+  <strong>title</strong>
+  <%= @reservation.mail %>
+</p>
+
+<p>
+  <strong>チェックイン</strong>
+  <%= @reservation.hotelin %>
+</p>
+
+<p>
+  <strong>チェックアウト</strong>
+  <%= @reservation.hotelout %>
+</p>
+
+<p>
+  <strong>人数</strong>
+  <%= @reservation.people %>
+</p>
+
+
+
+<%= link_to 'Back', new_hotel_reservation_path(@hotel) %>

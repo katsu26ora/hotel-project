@@ -1,0 +1,19 @@
+<h1>都道府県一覧</h1>
+
+<p><%= link_to 'Back', hotels_path %></p>
+
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<% @prefectures.each do |prefecture| %>
+  <%= link_to prefecture.name, prefecture %>
+<% end %>
+
+<div class="gopagetop"><a href="prefectures">▲ページ先頭へ</a></div>
+

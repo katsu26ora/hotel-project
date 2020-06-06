@@ -1,0 +1,60 @@
+<h1>ホテルの一覧</h1>
+
+<%= search_form_for @q do |f| %>
+ 
+<%= f.label :prefecture_name_cont %>
+  <%= f.search_field :prefecture_name_cont %>
+<%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit '検索', class: "btn btn-success" %>
+<% end %>
+
+  <p>
+  	<%= link_to 'prefecture', prefectures_path %>
+  </p>
+  
+<div class="container">
+  <div class="row">
+      <% @hotels.each do |hotel| %>
+      <p><div class="col-md-3">
+          <div class="card">
+            <img src="<%= hotel.picture_url %>" class="card-img-top" alt="ホテルの写真">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to hotel.name, hotel %></h5>
+              <p class="card-text">TEL:<%= hotel.phone %></p>
+              <p class="card-text">説明：<%= hotel.description %></p>
+              <p class="card-text">場所：<%= hotel.prefecture_id %></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"><%= link_to "詳細", hotel %></small>
+            </div>
+          </div>
+      </p></div>
+      <% end %>
+  </div>
+</div>
+
+
+  <% @hotels.each do |hotel| %>
+  　<p>
+  	<strong>ホテル名:</strong>
+      <%= link_to hotel.name, hotel %>
+    </p>
+
+    <%= image_tag(hotel.picture_url, width: 600) if hotel.picture.present? %>
+
+    <p>
+    	<strong>description:</strong>
+      <%= hotel.description %>
+    </p>
+
+    <p>
+    	<strong>phone:</strong>
+      <%= hotel.phone %>
+    </p>
+  <% end %>
+
+
+<div class="gopagetop"><a href="hotels">▲ページ先頭へ</a></div>
+

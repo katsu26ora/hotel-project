@@ -1,0 +1,15 @@
+<h1><%= @prefecture.name %></h1>
+
+<% @hotel.each do |hotel| %>
+  <p>
+   <%= link_to hotel.name, hotel %>
+
+   <p><%= hotel.phone %></p>
+   <p><%= hotel.name %></p>
+   <%= image_tag(hotel.picture_url, width: 600) if hotel.picture.present? %>
+　　<P><%= link_to '詳細', hotel %></p>  
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', prefectures_path %>

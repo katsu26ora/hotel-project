@@ -1,0 +1,24 @@
+<h1>レビューの詳細</h1>
+<p>
+  <strong>name:</strong>
+  <%= @review.name %>
+</p>
+
+<p>
+  <strong>title</strong>
+  <%= @review.title %>
+</p>
+
+<p>
+  <strong>評価</strong>
+  <%= @review.value %>
+</p>
+
+<p>
+  <strong>body</strong>
+  <%= @review.body %>
+</p>
+
+
+
+<%= link_to 'Back', hotel_reviews_path(@hotel) %>
