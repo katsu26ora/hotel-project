@@ -12,9 +12,9 @@ class ReservationsController < ApplicationController
     
     if @reservation.save
       redirect_to hotel_reservation_path(@hotel,@reservation)
-    end
     else
       render "new"
+    end
   end
 
   def reservation_params
