@@ -1,15 +1,30 @@
 <h1><%= @prefecture.name %></h1>
 
-<% @hotel.each do |hotel| %>
-  <p>
-   <%= link_to hotel.name, hotel %>
+<div class="container">
+  <div class="row">
+      <% @hotel.each do |hotel| %>
+      <p><div class="col-md-4">
+          <div class="card">
+            <p>
+            <img src="<%= hotel.picture_url %>" class="card-img-top" alt="ホテルの写真">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to hotel.name, hotel %></h5>
+              <h6 class="card-text">TEL:<%= hotel.phone %></h6>
+              <h6 class="card-text">場所：<%= hotel.prefecture.name %></h6>
+              <h6 class="card-text">評価:<% if hotel.review_average.present? %>
+              <%= hotel.review_average %>
+              <% end %></h6>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"><%= link_to "詳細", hotel, class: "btn btn-secondary"  %></small>
+              <small class="text-muted"><%= link_to "予約", hotel_reservations_path(hotel), class: "btn btn-secondary"  %></small>
+              <small class="text-muted"><%= link_to "レビュー", hotel_reviews_path(hotel), class: "btn btn-secondary"  %></small>
+            </div>
+            </p>
+          </div>
+      </p></div>
+      <% end %>
+  </div>
+</div>
 
-   <p><%= hotel.phone %></p>
-   <p><%= hotel.name %></p>
-   <%= image_tag(hotel.picture_url, width: 600) if hotel.picture.present? %>
-　　<P><%= link_to '詳細', hotel %></p>  
-  </p>
-
-<% end %>
-
-<%= link_to 'Back', prefectures_path %>
+<small class="text-muted"><%= link_to "都道府県一覧", prefectures_path, class: "btn btn-secondary"  %></small>

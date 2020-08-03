@@ -1,6 +1,6 @@
 class PrefecturesController < ApplicationController
   def index
-    @prefectures = Prefecture.all
+    @region = Region.all
     @q = Prefecture.ransack(params[:q])
     @prefectures = @q.result(distinct: true)
   end

@@ -1,8 +1,11 @@
-<h1>New Review</h1>
-
+<h1>新規レビュー作成</h1>
+<div class="centernew">
 <%= render 'form', review: @review %>
+</div>
 
-<p><%= link_to 'レビューの一覧', hotel_reviews_path(@hotel) %></p>
-
-
-<%= link_to 'Back', hotel_path(@hotel) %>
+<div class="left2">
+ <small class="text-muted"><%= link_to "ホテル詳細", hotel_path(@hotel), class: "btn btn-secondary"  %></small>
+</div>
+<div class="rigth22">
+ <small class="text-muted"><%= link_to "レビューの一覧", hotel_reviews_path(@hotel), class: "btn btn-secondary"  %></small>
+</div>

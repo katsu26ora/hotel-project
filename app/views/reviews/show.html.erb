@@ -1,24 +1,45 @@
 <h1>レビューの詳細</h1>
-<p>
-  <strong>name:</strong>
-  <%= @review.name %>
-</p>
 
-<p>
-  <strong>title</strong>
-  <%= @review.title %>
-</p>
+<table>
+	<tr>
+		<td>
+			名前
+		</td>
+		<th>
+			  <%= @review.name %>
+		</th>
+	</tr>
 
-<p>
-  <strong>評価</strong>
-  <%= @review.value %>
-</p>
+	<tr>
+		<td>
+			タイトル
+		</td>
+		<th>
+			  <%= @review.title %>
 
-<p>
-  <strong>body</strong>
-  <%= @review.body %>
-</p>
+		</th>
+	</tr>
 
+	<tr>
+		<td>
+			評価
+		</td>
+		<th>
+			  <%= @review.value %>
 
+		</th>
+	</tr>
 
-<%= link_to 'Back', hotel_reviews_path(@hotel) %>
+	<tr>
+		<td>
+			内容
+		</td>
+		<th>
+			  <%= @review.body %>
+
+		</th>
+	</tr>
+
+</table>
+<tr/>
+ <small class="text-muted"><%= link_to "戻る", hotel_reviews_path(@hotel), class: "btn btn-secondary"  %></small>

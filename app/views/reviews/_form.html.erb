@@ -10,33 +10,38 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :名前 %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :タイトル %>
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">レビューの作成</div>
+  <div class="card-body">
+    <p class="card-text">  <div class="field">
+      <%= form.label :名前 %><br/>
+       <%= form.text_field :name  %>
+     </div>
+    </p>
+    <p class="card-text">  <div class="field">
+    <%= form.label :タイトル %><br/>
     <%= form.text_field :title %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :評価 %>
+     </div>
+    </p>
+    <p class="card-text">  <div class="field">
+    <%= form.label :評価 %><br/>
     <%= form.text_field :value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :本文 %>
+     </div>
+    </p>
+    <p class="card-text">  <div class="field">
+    <%= form.label :本文 %><br/>
     <%= form.text_area :body %>
+     </div>
+       <%= form.hidden_field :hotel_id, value: @hotel.id %>
+    <div class="actions">
+      <%= form.submit '作成', class: "btn btn-success"%>  
+    </div>
+
+    </p>
+
   </div>
+</div>
 
-  <%= form.hidden_field :hotel_id, value: @hotel.id %>
 
-  
-
-  <div class="actions">
-    <%= form.submit %>  
-  </div>
 
 <% end %>

@@ -1,19 +1,82 @@
 <h1>都道府県一覧</h1>
 
-<p><%= link_to 'Back', hotels_path %></p>
-
 <%= search_form_for @q do |f| %>
-
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
-
-  <%= f.submit %>
+  <%= f.search_field :name_cont,placeholder: "都道府県" %>
+  <%= f.submit '検索', class: "btn btn-success" %>
 <% end %>
 
 
-<% @prefectures.each do |prefecture| %>
-  <%= link_to prefecture.name, prefecture %>
-<% end %>
 
-<div class="gopagetop"><a href="prefectures">▲ページ先頭へ</a></div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">一覧</a>
+
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">地図</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="container">
+      <div class="row">
+          <% @prefectures.each do |prefecture| %>
+          <p>
+            <div class="col-md-4">
+              <div class="mariginprefecture">
+              <%= link_to prefecture do %>
+                <%= image_tag(prefecture.picture_url,width: 250,height: 200) if prefecture.picture.present? %>
+                <% end %>
+              <div class="card-img-overlay">
+                <div class="padding">
+                <h3><%= link_to prefecture.name, prefecture %></h3>
+              </div>
+              </div>
+            </div>
+            </div>
+          </p>
+          <% end %>
+      <br/>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="japan-left">
+      <%= image_tag 'japan.png', width: 470 %>
+    </div>
+
+    <div class="japan-right">
+        <% Region.all.each do |region| %>
+        <p>
+        <div class="btn-group dropright">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= region.name %>
+            </button>
+            <div class="dropdown-menu">
+              <% region.prefectures.each do |prefecture| %>
+                <a class="dropdown-item" >
+                  <div class="center">
+                    <%= link_to prefecture.name, prefecture %>
+                  </div>
+                </a>
+              <% end %>
+            </div>
+          
+        </div>
+        </p>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...
+  </div>
+  
+</div>
+
+
+
 

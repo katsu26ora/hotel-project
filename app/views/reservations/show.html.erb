@@ -1,29 +1,58 @@
 <h1>ご予約ありがとうございます</h1>
-<p>
-  <strong>name:</strong>
-  <%= @reservation.name %>
-</p>
-
-<p>
-  <strong>title</strong>
-  <%= @reservation.mail %>
-</p>
-
-<p>
-  <strong>チェックイン</strong>
-  <%= @reservation.hotelin %>
-</p>
-
-<p>
-  <strong>チェックアウト</strong>
-  <%= @reservation.hotelout %>
-</p>
-
-<p>
-  <strong>人数</strong>
-  <%= @reservation.people %>
-</p>
+<%= image_tag 'ojigi_man.gif', :size =>'100x100' %>
 
 
+<table>
+  <tr>
+    <th>
+      名前
+    </th>
+    <td>
+      <%= @reservation.name %>様      
+    </td>
+  </tr>
+  <tr>
+    <th>
+      メールアドレス
+    </th>
+    <td>
+      <%= @reservation.mail %>
+    </td>
 
-<%= link_to 'Back', new_hotel_reservation_path(@hotel) %>
+  </tr>
+
+  <tr>
+    <th>
+      宿泊開始日
+    </th>
+    <td>
+     <%= @reservation.hotelin %>
+    </td>
+
+  </tr>
+
+  <tr>
+    <th>
+      宿泊終了日
+    </th>
+    <td>
+     <%= @reservation.hotelout %>
+    </td>
+
+  </tr>
+
+  <tr>
+    <th>
+      人数
+    </th>
+    <td>
+      <%= @reservation.people %>名
+    </td>
+
+  </tr>
+
+
+</table>
+<br/>
+
+ <small class="text-muted"><%= link_to "戻る", hotel_path(@hotel), class: "btn btn-secondary"  %></small>

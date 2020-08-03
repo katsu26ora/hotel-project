@@ -1,31 +1,61 @@
-<h1>ホテル詳細ページ</h1>
-
 <p>
-	<strong>ホテル名:</strong>
-    <%= @hotel.name %>
+    <h1><%= @hotel.name %></h1>
 </p>
 
-<p>
-	<strong>description:</strong>
-	<%= @hotel.description %>
-	
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+		<%= image_tag(@hotel.picture_url, width: 600,height:300) if @hotel.picture.present? %>
+    </div>
+    <% @picture.each do |picture| %>
+		<div class="carousel-item">
+   			<%= image_tag(picture.pic_url, width: 600,height:300) if picture.pic.present? %>
+		</div>
+    <% end %>
+  </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="marginshowhotel">
+<div class="left2">
+  <%= @hotel.name %>　</h2>
+</div>
+<div class="rigth2">
+  評価 
+  <%= @hotel.review_average %>
+</div>
+</div>
+<p style="text-align:center">
+  <table >
+    <tr>
+      <th>場所</th>
+      <td><%= @hotel.prefecture.name %> </td>
+    </tr>
+    <tr>
+      <th>電話</th>
+      <td><%= @hotel.phone %></td> 
+    </tr>
+    <tr>
+      <th>説明</th>
+      <td><%= @hotel.description %></td>
+    </tr>
+  
+  </table>
 </p>
 
-<%= image_tag(@hotel.picture_url, width: 600) if @hotel.picture.present? %>
-
-<p>
-    <strong>☎:</strong>
-	<%= @hotel.phone %>
-	
-</p>
-
-<p><%= link_to 'Back', hotels_path %></p>
-
-<%= link_to 'レビューの一覧', hotel_reviews_path(@hotel) %>
-
-
-<%= link_to 'レビューの作成', new_hotel_review_path(@hotel) %>
-
-
-<%= link_to '予約', new_hotel_reservation_path(@hotel) %>
-
+<div class="left3">
+  <small class="text-muted"><%= link_to "ホテル一覧", hotels_path, class: "btn btn-secondary"  %></small>
+</div>
+<div class="center3">
+  <small class="text-muted"><%= link_to "レビュー", hotel_reviews_path(@hotel), class: "btn btn-secondary"  %></small>
+</div>
+<div class="right3">
+  <small class="text-muted"><%= link_to "予約", new_hotel_reservation_path(@hotel), class: "btn btn-warning"  %></small>
+</div>

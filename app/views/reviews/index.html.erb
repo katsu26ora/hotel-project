@@ -1,13 +1,29 @@
-<h1>レビューの一覧</h1>
+<h1>レビューの一覧</h1><br/>
+ <p><small class="text-muted"><%= link_to "新規レビュー", new_hotel_review_path(@hotel), class: "btn btn-secondary"  %></small></p>
+
 <% @reviews.each do |review| %>
-  <p>
- <%= review.value %> 
- <%= review.name %> 
- <%= review.title %>
- <%= review.body %>
- <%= link_to review.name, hotel_review_path(@hotel,review) %>
-  </p>
+  <table >
+    <tr>
+      <td colspan="4"  >
+        <div class="progress" aria-valuemax="10">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= review.value %>%" aria-valuenow="<%= review.value %>" aria-valuemin="0" ><%= review.value %></div>
+      </div>
+      </td>
+      <td colspan="5"  >
+         <%= review.title %>
+      </td>
+    </tr>
+      <td colspan="10"  > 
+        <%= review.body %>     
+      </td>
+    </tr>
+    <br/>
+  </table>
 <% end %>
-<p></p>
-<%= link_to 'Back', hotel_path(@hotel) %>
-<%= link_to 'New', new_hotel_review_path(@hotel) %>
+
+<div class="left2">
+ <small class="text-muted"><%= link_to "ホテル詳細", hotel_path(@hotel), class: "btn btn-secondary"  %></small>
+</div>
+<div class="rigth22">
+ <small class="text-muted"><%= link_to "新規レビュー", new_hotel_review_path(@hotel), class: "btn btn-secondary"  %></small>
+</div>
