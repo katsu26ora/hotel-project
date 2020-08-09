@@ -14,7 +14,7 @@ class User < ApplicationRecord
 	end
   has_many :hotels, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_hotels, through: :likes, source: :post
+  has_many :liked_hotels, through: :likes, source: :hotel
 
   def already_liked?(hotel)
     self.likes.exists?(hotel_id: hotel.id)

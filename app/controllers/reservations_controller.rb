@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
- 
 
   def new
     @hotel = Hotel.find(params[:hotel_id])
