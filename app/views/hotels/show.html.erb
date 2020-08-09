@@ -50,6 +50,13 @@
   </table>
 </p>
 
+<h3>いいね件数: <%= @hotel.likes.count %></h3>
+<% if current_user.already_liked?(@hotel) %>
+  <%= button_to 'いいねを取り消す', hotel_like_path(@hotel), method: :delete %>
+<% else %>
+  <%= button_to 'いいね', hotel_likes_path(@hotel) %>
+<% end %>
+
 <div class="left3">
   <small class="text-muted"><%= link_to "ホテル一覧", hotels_path, class: "btn btn-secondary"  %></small>
 </div>

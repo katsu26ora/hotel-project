@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :hotels, :only => [:index, :show] do
     resources :reviews, :only =>[:index, :new, :create, :show]
     resources :reservations, :only =>[:new, :create, :show]
+    resources :likes, only: [:create, :destroy]
   end
 root to: 'hotels#index'
 end

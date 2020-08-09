@@ -9,6 +9,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @prefecture = Prefecture.all
     @picture = @hotel.pictures
+    @like = Like.new
   end  
 
 end

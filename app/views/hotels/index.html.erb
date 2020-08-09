@@ -14,7 +14,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <%= image_tag(Hotel.find(6).picture_url, width:600, height:350 ) if Hotel.find(6).picture.present? %>
+        <%= image_tag(Hotel.find(1).picture_url, width:600, height:350 ) if Hotel.find(1).picture.present? %>
     </div>
     <% @hotels.each do |hotel| %>
           <div class="carousel-item">
@@ -33,7 +33,7 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
-<br/
+<br/>
 <div class="container">
   <div class="row">
       <% @hotels.each do |hotel| %>
